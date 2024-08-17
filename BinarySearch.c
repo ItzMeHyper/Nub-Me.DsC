@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main() {
 
-    int  i, n, x, flag, time=0;
+    int  i, n, x, flag = 0, time=0;
     time++;
 
     printf("Enter the number of elements: ");
