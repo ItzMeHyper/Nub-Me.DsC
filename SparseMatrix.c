@@ -37,7 +37,7 @@ int main() {
     B[0][1] = c;
     B[0][2] = k - 1;
 
-    printf("Triplet representation is:\n");
+    printf("Sparse matrix representation is:\n");
     printf("Row\tColumn\tValue\n");
     for (i = 0; i < k; i++) {
         printf("%d\t%d\t%d\n", B[i][0], B[i][1], B[i][2]);
