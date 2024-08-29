@@ -37,7 +37,7 @@ void display() {
 int main() {
     int choice, value;
 
-    printf("Enter the size of stack: ");
+    printf("Enter the stack size : ");
     scanf("%d", &MAX);
 
     while (1) {
