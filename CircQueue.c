@@ -5,7 +5,7 @@ int Q[100], i, front = -1, rear = -1, MAX, dlt;
 
 void enqueue(int value) {
     if ((rear + 1) % MAX == front) {
-        printf("Queue overflow\n");
+        printf("Circular Queue overflow\n");
     } else {
         if (front == -1) {
             front = rear = 0;
@@ -19,7 +19,7 @@ void enqueue(int value) {
 
 void dequeue() {
     if (front == -1) {
-        printf("Queue underflow\n");
+        printf("Circular Queue underflow\n");
     } else {
         dlt = Q[front];
         if (front == rear) {
@@ -33,9 +33,9 @@ void dequeue() {
 
 void display() {
     if (front == -1 && rear == -1) {
-        printf("Queue is empty\n");
+        printf("Circular Queue is empty\n");
     } else {
-        printf("Queue elements are:\n");
+        printf("Circular Queue elements are:\n");
         for (i = front; i <=rear; i++) {
             printf("%d  ", Q[i]);
         }
