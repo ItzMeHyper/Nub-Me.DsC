@@ -32,14 +32,15 @@ void dequeue() {
 }
 
 void display() {
-    if (front == -1 && rear == -1) {
+    if (front == -1) {
         printf("Circular Queue is empty\n");
     } else {
         printf("Circular Queue elements are:\n");
-        for (i = front; i <=rear; i++) {
+        for (i = front; i != rear; i = (i + 1) % MAX) {
             printf("%d  ", Q[i]);
         }
-    printf("\n");
+        printf("%d  ", Q[rear]);  // Print the last element
+        printf("\n");
     }
 }
 
