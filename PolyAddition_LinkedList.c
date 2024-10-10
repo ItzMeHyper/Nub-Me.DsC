@@ -13,28 +13,26 @@ struct node* createNode(int coef, int expo) {
     newNode->link = NULL;
     return newNode;
 }
-
 void printPolynomial(struct node* head) {
     struct node* p = head;
     while (p != NULL) {
         if (p->link == NULL) {
-            printf("%dX^%d", p->coef, p->expo);
+            printf("(%dX^%d)", p->coef, p->expo);
         } else {
-            printf("%dX^%d + ", p->coef, p->expo);
+            printf("(%dX^%d) + ", p->coef, p->expo);
         }
         p = p->link;
     }
     printf("\n");
 }
-
 int main() {
     int no1, no2, i, coef1, expo1;
-    struct node* rhead = NULL; // Resultant polynomial head
-    struct node* phead = NULL; // First polynomial head
-    struct node* qhead = NULL; // Second polynomial head
-    struct node* r = NULL; // Pointer for result
-    struct node* p = NULL; // Pointer for first polynomial
-    struct node* q = NULL; // Pointer for second polynomial
+    struct node* rhead = NULL;
+    struct node* phead = NULL;
+    struct node* qhead = NULL;
+    struct node* r = NULL;
+    struct node* p = NULL;
+    struct node* q = NULL;
 
     // Input first polynomial
     printf("Enter the number of terms in polynomial 1: ");
@@ -44,7 +42,7 @@ int main() {
         for (i = 0; i < no1; i++) {
             printf("Enter the coefficient of term %d: ", i + 1);
             scanf("%d", &coef1);
-            printf("Enter the exponent of term %d: ", i + 1);
+            printf("Exponent of term %d: ", i + 1);
             scanf("%d", &expo1);
             struct node* temp = createNode(coef1, expo1);
             if (phead == NULL) {
@@ -56,6 +54,8 @@ int main() {
             }
         }
     }
+    printf("First Polynomial: ");
+    printPolynomial(phead);
 
     // Input second polynomial
     printf("Enter the number of terms in polynomial 2: ");
@@ -65,7 +65,7 @@ int main() {
         for (i = 0; i < no2; i++) {
             printf("Enter the coefficient of term %d: ", i + 1);
             scanf("%d", &coef1);
-            printf("Enter the exponent of term %d: ", i + 1);
+            printf("Exponent of term %d: ", i + 1);
             scanf("%d", &expo1);
             struct node* temp = createNode(coef1, expo1);
             if (qhead == NULL) {
@@ -77,10 +77,6 @@ int main() {
             }
         }
     }
-
-    printf("First Polynomial: ");
-    printPolynomial(phead);
-
     printf("Second Polynomial: ");
     printPolynomial(qhead);
 
@@ -90,7 +86,6 @@ int main() {
 
     while (p != NULL || q != NULL) {
         struct node* temp = (struct node*)malloc(sizeof(struct node));
-
         if (p != NULL && (q == NULL || p->expo > q->expo)) {
             temp->coef = p->coef;
             temp->expo = p->expo;
@@ -105,9 +100,7 @@ int main() {
             p = p->link;
             q = q->link;
         }
-
         temp->link = NULL;
-
         if (rhead == NULL) {
             rhead = temp;
             r = temp;
